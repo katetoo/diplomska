@@ -1,0 +1,15 @@
+<%= render 'shared/page_title', title: "Сите генерички лекови" %>
+<%= render 'layouts/navigation2' %>
+
+<% @generic_names.each do |gn| %>
+    <div class="row">
+        <div class="col-lg-12 well">
+            <section class="chef_info center">
+                <h3><%= link_to gn.ime_lek, generic_name_path(gn) %></h3>
+                <h4> е генерички лек од поделбата <%= gn.substitution.ime_podelba  %> </h4>
+            </section>
+        </div>
+    </div>
+    <hr/>
+<% end %>
+

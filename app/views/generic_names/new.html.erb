@@ -1,0 +1,45 @@
+<%= render 'shared/page_title', title: "Додај нов генерички лек" %> 
+<%= render 'shared/errors', obj: @generic_name %>
+
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+        <%= form_for @generic_name do |f| %>
+        <%= f.label :Име_на_лек %>
+        <%= f.text_field :genericko_ime %></br>
+        
+        <%= f.label :Детална_поделба %>
+        <%= f.text_field :detalna_podelba %></br>
+        
+        <%= f.label :Состав %>
+        <%= f.text_field :sostav %></br>
+        
+        <%= f.label :Индикации%>
+        <%= f.text_field :indikacii %></br>
+        
+        <%= f.label :Интеракции %>
+        <%= f.text_field :interakcii %></br>
+        
+        <%= f.label :Дејство %>
+        <%= f.text_field :dejstvo %></br>
+        
+        <%= f.label :Мерки_на_претпазливост %>
+        <%= f.text_field :merki_na_pretpazlivost %></br>
+        
+        <%= f.label :Дозирање %>
+        <%= f.text_field :doziranje %></br>
+        
+        <%= f.label :Несакани_дејства %>
+        <%= f.text_field :nesakani_dejstva %></br>
+        
+        <%= f.label :Контраиндикации %>
+        <%= f.text_field :kontraindikacii %></br>
+        
+        <strong>Поделба:</strong>
+        
+        <%= f.collection_select(:substitution_id, Substitution.all, :id, :ime_podelba, {:include_blank => ''}) %>
+
+
+        <%= f.submit 'Креирај', class: "btn btn-success" %>
+        <% end %>
+    </div>
+</div>

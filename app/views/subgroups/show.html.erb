@@ -1,0 +1,22 @@
+<%= render 'shared/page_title', title: "Подгрупи" %>
+<%= render 'layouts/navigation2' %>
+        
+        <div class="col-lg-12 well">
+            <section class="group_info center">
+                <h3><%= link_to @subgroup.ime_podgrupa, subgroup_path(@subgroup) %></h3>
+            </section>
+            </br>
+            <h4>Подгрупата се дели на:</h4>
+            <% @substitutions.each do |substitution| %>
+                <div class="col-lg-10 offset-2 well">
+                    <h4><%= link_to substitution.ime_podelba, substitution_path(substitution) %></h4>
+                </div>
+            <% end %>
+            
+        </div>
+        <div class="col-lg-12 well">
+            <button class="btn pull-right btn-danger"><%= link_to "Избриши група", @subgroup, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да ја избришете подгрупата?"} %></button>
+            <button class="btn pull-right"><%= link_to "Измени", edit_subgroup_path(@subgroup.id) %></button>
+        </div>
+        
+    <hr/>

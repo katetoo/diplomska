@@ -1,0 +1,17 @@
+<%= render 'shared/page_title', title: "Сите поделби на лекови" %>
+
+<%= render 'layouts/navigation2' %>
+<% @substitutions.each do |substitution| %>
+    <div class="row">
+        
+        <div class="col-lg-12 well">
+            <section class="chef_info center">
+                <h3><%= link_to substitution.ime_podelba, substitution_path(substitution) %></h3>
+                <h4> е поделба од подгрупата <%= substitution.subgroup.ime_podgrupa  %> </h4>
+                
+            </section>
+        </div>
+        
+    </div>
+    <hr/>
+<% end %>

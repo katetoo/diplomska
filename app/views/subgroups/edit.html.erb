@@ -1,0 +1,19 @@
+<%= render 'shared/page_title', title: "Измени подгрупа" %> 
+<%= render 'shared/errors', obj: @subgroup %>
+
+<div class="row">
+    <div class="well col-md-10 col-md-offset-2">
+        <%= form_for(@subgroup, html: { multipart: true }) do |f| %>
+        <%= f.label :Име_на_подгрупа %>
+        <%= f.text_field :ime_podgrupa %>
+        
+        </br>
+        
+        <strong>Група:</strong>
+        
+        <%= f.collection_select(:group_id, Group.all, :id, :ime_grupa) %>
+        
+        <%= f.submit 'Измени', class: "btn btn-success" %>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<%= render 'shared/page_title', title: "Измени група" %> 
+<%= render 'shared/errors', obj: @group %>
+
+<div class="row">
+    <div class="well col-md-10 col-md-offset-2">
+        <%= form_for(@group, html: { multipart: true }) do |f| %>
+        <%= f.label :Име_на_група %>
+        <%= f.text_field :ime_grupa %>
+        
+        <%= f.submit 'Измени', class: "btn btn-success" %>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<%= render 'shared/page_title', title: "Додај нова подгрупа" %> 
+<%= render 'shared/errors', obj: @subgroup %>
+
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+        <%= form_for @subgroup do |f| %>
+        <%= f.label :Име_на_подгрупа %>
+        <%= f.text_field :ime_podgrupa %>
+        
+        </br>
+        
+        <strong>Група:</strong>
+        
+        <%= f.collection_select(:group_id, Group.all, :id, :ime_grupa, {:include_blank => ''}) %>
+
+        
+        <%= f.submit 'Креирај', class: "btn btn-success pull-right" %>
+        <% end %>
+    </div>
+</div>

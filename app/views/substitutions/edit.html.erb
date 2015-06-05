@@ -1,0 +1,19 @@
+<%= render 'shared/page_title', title: "Измени поделба" %> 
+<%= render 'shared/errors', obj: @substitution %>
+
+<div class="row">
+    <div class="well col-md-10 col-md-offset-2">
+        <%= form_for(@substitution, html: { multipart: true }) do |f| %>
+        <%= f.label :Име_на_поделба %>
+        <%= f.text_field :ime_podelba %>
+        
+        </br>
+        
+        <strong>Подгрупа:</strong>
+        
+        <%= f.collection_select(:subgroup_id, Subgroup.all, :id, :ime_podgrupa) %>
+        
+        <%= f.submit 'Измени', class: "btn btn-success" %>
+        <% end %>
+    </div>
+</div>
