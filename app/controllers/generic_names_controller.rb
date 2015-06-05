@@ -17,7 +17,7 @@ class GenericNamesController < ApplicationController
     def create
         @generic_name = GenericName.new(generic_params)
         if @generic_name.save
-            flash[:success] = "Генеричкиот лек е успешно креиран."
+            flash[:success] = "Генеричкиот лек е креиран."
             redirect_to generic_names_path
         else
             render :new
