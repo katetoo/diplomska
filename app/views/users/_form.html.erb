@@ -18,7 +18,7 @@
         <%= f.label :Лозинка %>
         <%= f.password_field :password %></br>
         
-        <% if logged_in? && current_user.admin %>
+        <% if logged_in? %>
             <div class="field">
                 <%= f.label "Админ" %> <br />
                 <%= f.check_box :admin %> <br />
