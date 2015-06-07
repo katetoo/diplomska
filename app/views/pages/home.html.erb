@@ -1,10 +1,12 @@
-<div class="center jumbotron">
-  <h1>Добредојдовте на страницата за лекови!</h1>
-  
-  <h2>Ова е веб страна која ќе им помогне на лекарите да се потсетат на лековите кои ги има во Република Македонија</h2>
-  
-  <%= link_to "Sign up now!" , "" , class: "btn btn-large btn-success" %>
-</div>
+<% if session[:user_id].nil? %>
+  <div class="center jumbotron">
+    <h1>Добредојдовте на страницата за лекови!</h1>
+    
+    <h2>Ова е веб страна која ќе им помогне на лекарите да се потсетат на лековите кои ги има во Република Македонија</h2>
+    
+    <%= link_to "Регистрирај се!" , new_user_path , class: "btn btn-large btn-success" %>
+  </div>
+<% end %>
 <div class="row">
   <div class="col-lg-4">
     <h3 class="midrow">
@@ -14,31 +16,31 @@
       Види ја поделбата на лекови како гостин и регистрирај се подоцна 
     </h2>
     <p>
-      <%= link_to "Види", "" , class: "btn btn-warning btn-small" %>
+      <%= link_to "Види", groups_path , class: "btn btn-warning btn-small" %>
     </p>
   </div>
   
   <div class="col-lg-4">
     <h3 class="midrow">
-      Види ја поделбата на лекови
+      Види ги сите производители
     </h3>
     <h2 class="left">
-        Види ја поделбата на лекови како гостин и регистрирај се подоцна
+        Види ги сите производители на лекови кои се продаваат во Република Македонија
     </h2>
     <p>
-      <%= link_to "Види", "" , class: "btn btn-warning btn-small" %>
+      <%= link_to "Види", producers_path , class: "btn btn-warning btn-small" %>
     </p>
   </div>
   
   <div class="col-lg-4">
     <h3 class="midrow">
-      Види ја поделбата на лекови
+      Види ги сите корисници
     </h3>
     <h2 class="left">
-      Види ја поделбата на лекови како гостин и регистрирај се подоцна
+      Види ги сите корисници на овој сајт
     </h2>
     <p>
-      <%= link_to "Види", "", class: "btn btn-warning btn-small" %>
+      <%= link_to "Види", users_path, class: "btn btn-warning btn-small" %>
     </p>
   </div>
 </div>

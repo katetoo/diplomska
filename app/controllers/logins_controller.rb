@@ -9,7 +9,7 @@ class LoginsController < ApplicationController
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             flash[:success] = "Вие сте логирани"
-            redirect_to root_path
+            redirect_to groups_path
         else
             flash.now[:danger]= "Е-маилот и лозинката штo ги внесовте не се совпаѓаат"
             render 'new'
