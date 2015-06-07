@@ -1,0 +1,31 @@
+<%= render 'shared/errors', obj: @user %>
+
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+        <%= form_for @user do |f| %>
+        <%= f.label :Име %>
+        <%= f.text_field :ime_korisnik %></br>
+        
+        <%= f.label :Презиме %>
+        <%= f.text_field :prezime_korisnik %></br>
+        
+        <%= f.label :Професија %>
+        <%= f.text_field :profesija_korisnik %></br>
+        
+        <%= f.label :Е_маил %>
+        <%= f.email_field :email_korisnik %></br>
+        
+        <%= f.label :Лозинка %>
+        <%= f.password_field :password %></br>
+        
+        <% if logged_in? && current_user.admin %>
+            <div class="field">
+                <%= f.label "Админ" %> <br />
+                <%= f.check_box :admin %> <br />
+            </div>
+        <% end %>
+        
+        <%= f.submit(@user.new_record? ? 'Регистрирај се' : 'Измени' , class: "btn btn-success") %>
+        <% end %>
+    </div>
+</div>

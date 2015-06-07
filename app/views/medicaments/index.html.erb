@@ -1,0 +1,12 @@
+<%= render 'shared/page_title', title: "Сите регистрирани лекови" %>
+
+<% @medicaments.each do |med| %>
+    <div class="row">
+        <div class="col-lg-12 well">
+            <section class="chef_info center">
+               <h3> <%= link_to med.ime_lek, medicament_path(med) %></h3>
+            </section>
+        </div>
+    </div>
+    <hr/>
+<% end %>

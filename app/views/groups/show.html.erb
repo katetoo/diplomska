@@ -1,5 +1,4 @@
 <%= render 'shared/page_title', title: "Групи" %>
-<%= render 'layouts/navigation2' %>
         
         <div class="col-lg-12 well">
             <section class="group_info center">
@@ -7,7 +6,7 @@
                 
             </section>
             </br>
-            <h4>Подгрупи:</h4>
+            <h4>Подгрупи од оваа група се:</h4>
             <% @subgroups.each do |subgroup| %>
                 <div class="col-lg-10 offset-2 well">
                     <h4><%= link_to subgroup.ime_podgrupa, subgroup_path(subgroup) %></h4>
@@ -16,7 +15,7 @@
             
         </div>
         <div class="col-md-12 well">
-            <button class="btn pull-left"><%= link_to "Додај нова поделба", new_substitution_path %></button>
+            <button class="btn pull-left"><%= link_to "Додај нова подгрупа", new_subgroup_path %></button>
             <button class="btn pull-right btn-danger"><%= link_to "Избриши група", @group, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да ја избришете групата?"} %></button>
             <button class="btn pull-right"><%= link_to "Измени", edit_group_path(@group.id) %></button>
         </div>

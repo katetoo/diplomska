@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525162638) do
+ActiveRecord::Schema.define(version: 20150607205344) do
 
   create_table "generic_names", force: true do |t|
     t.string "genericko_ime"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 20150525162638) do
   create_table "substitutions", force: true do |t|
     t.string  "ime_podelba"
     t.integer "subgroup_id"
+  end
+
+  create_table "users", force: true do |t|
+    t.string  "ime_korisnik"
+    t.string  "prezime_korisnik"
+    t.string  "email_korisnik"
+    t.string  "profesija_korisnik"
+    t.boolean "admin",              default: false
+    t.string  "password_digest"
   end
 
 end

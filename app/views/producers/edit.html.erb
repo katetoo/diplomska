@@ -1,0 +1,13 @@
+<%= render 'shared/page_title', title: "Измени група" %> 
+<%= render 'shared/errors', obj: @producer %>
+
+<div class="row">
+    <div class="well col-md-10 col-md-offset-2">
+        <%= form_for(@producer, html: { multipart: true }) do |f| %>
+        <%= f.label :Име_на_производител %>
+        <%= f.text_field :ime_proizvoditel %>
+        
+        <%= f.submit 'Измени', class: "btn btn-success" %>
+        <% end %>
+    </div>
+</div>

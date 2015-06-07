@@ -1,0 +1,21 @@
+<%= render 'shared/page_title', title: "Додај нова група" %> 
+<%= render 'shared/errors', obj: @medicament %>
+
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+        <%= form_for @medicament do |f| %>
+        <%= f.label :Име_на_лек %>
+        <%= f.text_field :ime_lek %>
+        
+        <strong>Производител:</strong>
+        
+        <%= f.collection_select(:producer_id, Producer.all, :id, :ime_proizvoditel, {:include_blank => ''}) %>
+        
+        <strong>Генеричко име:</strong>
+        
+        <%= f.collection_select(:generic_name_id, GenericName.all, :id, :genericko_ime, {:include_blank => ''}) %>
+
+        <%= f.submit 'Креирај', class: "btn btn-success" %>
+        <% end %>
+    </div>
+</div>

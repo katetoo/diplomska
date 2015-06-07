@@ -1,5 +1,4 @@
 <%= render 'shared/page_title', title: "Подгрупи" %>
-<%= render 'layouts/navigation2' %>
         
         <div class="col-lg-12 well">
             <section class="group_info center">
@@ -9,12 +8,13 @@
             <h4>Овде спаѓаат следниве генерички лекови:</h4>
             <% @generics.each do |gen| %>
                 <div class="col-lg-10 offset-2 well">
-                    <h4><%= link_to gen.genericko_ime, '#' %></h4>
+                    <h4><%= link_to gen.genericko_ime, generic_name_path(gen) %></h4>
                 </div>
             <% end %>
             
         </div>
         <div class="col-lg-12 well">
+            <button class="btn pull-left"><%= link_to "Додај нов генерички лек", new_generic_name_path %></button>
             <button class="btn pull-right btn-danger"><%= link_to "Избриши поделба", @substitution, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да ја избришете поделбата?"} %></button>
             <button class="btn pull-right"><%= link_to "Измени", edit_substitution_path %></button>
         </div>

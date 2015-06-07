@@ -1,0 +1,18 @@
+<%= render 'shared/page_title', title: "Корисник" %>
+        
+        <div class="col-lg-12 well">
+            <section class="group_info center">
+                <strong> <h3>Имe и презиме: <%= @user.ime_korisnik %>, <%= @user.prezime_korisnik %></h3> </strong>
+                <h4>E-маил: <%= @user.email_korisnik %></h4>
+                <% if @user.profesija_korisnik.present? %>
+                    <h4>Професија: <%= @user.profesija_korisnik %></h4>
+                <% end %>
+                <% if current_user.admin %>
+                    <button><%= link_to 'Измени', edit_user_path(@user) %></button>
+                <% end %>
+                
+            </section>
+            </br>
+        </div>
+        
+    <hr/>

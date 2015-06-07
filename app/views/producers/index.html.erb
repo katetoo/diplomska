@@ -1,13 +1,12 @@
 <%= render 'shared/page_title', title: "Сите групи на лекови" %>
 
-<% @groups.each do |group| %>
+<% @producers.each do |prod| %>
     <div class="row">
         <div class="col-lg-12 well">
             <section class="chef_info center">
-               <h3> <%= link_to group.ime_grupa, group_path(group) %></h3>
+               <h3> <%= link_to prod.ime_proizvoditel, producer_path(prod) %></h3>
             </section>
         </div>
     </div>
     <hr/>
 <% end %>
-

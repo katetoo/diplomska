@@ -46,7 +46,7 @@ class GroupsController < ApplicationController
     
     private
       def group_params
-        params.require(:group).permit(:ime_grupa, :subgroup_id)
+        params.require(:group).permit(:ime_grupa, :subgroup_id, :medicament_id)
       end
     
 end

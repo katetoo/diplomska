@@ -32,7 +32,7 @@ class GenericNamesController < ApplicationController
         @generic_name=GenericName.find(params[:id])
         if @generic_name.update(generic_params)
             flash[:success] = "Генеричкиот лек е успешно изменет."
-            redirect_to generic_name(@generic_name)
+            redirect_to generic_name_path(@generic_name)
         else
             render :edit
         end

@@ -1,11 +1,56 @@
 <header class = "navbar navbar-fixed-top navbar-inverse">
-    <div class = "container">
-      <%= link_to "Лекови", root_path, class: "btn btn-lg btn-success", id: "logo" %>
-      <button type="button" class="btn btn-default nav_ul_item"><%= link_to "link1", "", class: "navbar-link" %></button>
-      <button type="button" class="btn btn-default nav_ul_item"><%= link_to "link1", "", class: "navbar-link" %></button>
-      <button type="button" class="btn btn-default nav_ul_item"><%= link_to "link1", "", class: "navbar-link" %></button>
-      <button type="button" class="btn btn-default nav_ul_item pull-right"><%= link_to "link1", "", class: "navbar-link" %></button>
-      <button type="button" class="btn btn-default nav_ul_item pull-right"><%= link_to "link1", "", class: "navbar-link" %></button>
-    </div>
+  <%= link_to "Лекови", root_path, class: "btn btn-lg btn-success", id: "logo" %>
+  <ul class="nav nav-pills">
+    <li role="presentation" class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="fixed">
+        Класификација на лекови <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li role="presentation"><%= link_to "Групи на лекови", groups_path %></li>
+        <li role="presentation"><%= link_to "Подгрупи на лекови", subgroups_path %></li>
+        <li role="presentation"><%= link_to "Поделба на подгрупи", substitutions_path %></li>
+        <li role="presentation"><%= link_to "Генерички имиња", generic_names_path %></li>
+        <li role="presentation"><%= link_to "Лекови во продажба", medicaments_path %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Производители", producers_path %></li>
     
+    <% if logged_in?  %>
+      <li role="presentation" class="dropdown pull-right">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="fixed">
+          <%= current_user.ime_korisnik %> <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li role="presentation"><%= link_to "Види профил", user_path(current_user) %> </li>
+          <li role="presentation"><%= link_to "Измени профил", edit_user_path(current_user) %></li>
+          <li class="divider"></li>
+          <li role="presentation"><%= link_to "Одјави се", logout_path %></li>
+        </ul>
+      </li>
+    <% end %>
+    <% if logged_in? && current_user.admin  %>
+      <li role="presentation" class="dropdown pull-right">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="fixed">
+          Додади <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li role="presentation"><%= link_to "Додај група", new_group_path %> </li>
+          <li role="presentation"><%= link_to "Додај подгрупа", new_subgroup_path %></li>
+          <li role="presentation"><%= link_to "Додај поделба", new_substitution_path %></li>
+          <li role="presentation"><%= link_to "Додај генеричко име", new_generic_name_path %></li>
+          <li role="presentation"><%= link_to "Додај лек", new_medicament_path %></li>
+          <li class="divider"></li>
+          <li role="presentation"><%= link_to "Додај производител", new_producer_path %></li>
+        </ul>
+      </li>
+    <% else %>
+    <%= hidden_li_if( logged_in? ) do %>
+       <li class= "pull-right"><%= link_to "Најави се", login_path %> </li>
+    <% end %>
+      
+    <% end %>
+  </ul>
+  
+  
+  
 </header>

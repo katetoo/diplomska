@@ -1,0 +1,47 @@
+<%= render 'shared/page_title', title: "Генерички имиња на лекови" %>
+
+<div class="col-lg-12 well">
+    <section>
+        <h3> Генеричко име на лекот: <%= @generic_name.genericko_ime %></h3>
+        <% if @generic_name.detalna_podelba.present? %>
+            <h4>Овој лек припаѓа во <%= @generic_name.detalna_podelba %>, дел од <%= @generic_name.substitution.ime_podelba %></h4>
+        <% end %>
+        <% if @generic_name.sostav.present? %>
+            <h4>Состав: <%= @generic_name.sostav %></h4>
+        <% end %>
+        <% if @generic_name.indikacii.present? %>
+            <h4>Индикации: <%= @generic_name.indikacii %></h4>
+        <% end %>
+        <% if @generic_name.interakcii.present? %>
+            <h4>Интеракции: <%= @generic_name.interakcii %></h4>
+        <% end %>
+        <% if @generic_name.dejstvo.present? %>
+            <h4>Дејство: <%= @generic_name.dejstvo %></h4>
+        <% end %>
+        <% if @generic_name.merki_na_pretpazlivost.present? %>
+            <h4>Мерки на претпазливост: <%= @generic_name.merki_na_pretpazlivost %></h4>
+        <% end %>
+        <% if @generic_name.doziranje.present? %>
+            <h4>Дозирање: <%= @generic_name.doziranje %></h4>
+        <% end %>
+        <% if @generic_name.nesakani_dejstva.present? %>
+            <h4>Несакани дејства: <%= @generic_name.nesakani_dejstva %></h4>
+        <% end %>
+        <% if @generic_name.kontraindikacii.present? %>
+            <h4>Контраиндикации: <%= @generic_name.kontraindikacii %></h4>
+        <% end %>
+    </section>
+    </br>
+    <h4>Овој генерички лек го има со следниве фабрички имиња:</h4>
+    <% @medicaments.each do |med| %>
+        <div class="col-lg-10 offset-2 well">
+            <h4><%= link_to med.ime_lek, medicaments_path %></h4>
+        </div>
+    <% end %>
+</div>
+<div class="col-lg-12 well">
+    <button type="button" class="btn pull-left"><% link_to "Додај нов генерички лек", new_generic_name_path%></button>
+    <button class="btn pull-right btn-danger"><%= link_to "Избриши го овој генерички лек", @substitution, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да го избришете овој лек?"} %></button>
+    <button class="btn pull-right"><%= link_to "Измени", edit_generic_name_path %></button>
+</div>
+<hr/>
