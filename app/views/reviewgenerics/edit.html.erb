@@ -1,0 +1,14 @@
+<%= render 'shared/page_title', title: "Измени коментар" %>
+
+<%= render 'shared/errors', obj: @komentar %>
+
+<div class="row">
+  <div class="well col-md-8 col-md-offset-2">
+    <%= form_for ([@genname, @komentar]) do |f| %>
+      <%= f.label 'Измени' %>
+      <%= f.text_area :komentar_na_generika %>
+
+      <%= f.submit(@komentar.new_record? ? 'Коментирај' : 'Измени', class: "btn btn-success") %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div>
+    <p><%= komentar.user.ime_korisnik %>:</p>
+    <p><%= komentar.komentar_na_generika %></p>
+
+    <% if logged_in? && (komentar.user == current_user || current_user.admin?) %>
+    <div class="pull-right small">
+      <%= link_to "[Измени]", edit_generic_name_reviewgeneric_path(@genname, komentar) %>
+      <%= link_to "[Избриши]", [@genname, komentar], method: :delete %>
+    </div>
+    <% end %>
+    <hr/>
+</div>

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-    has_many :commentgenericnames
-    has_many :commentmedicaments
+    has_many :reviewgenerics
+    has_many :reviewmeds
     before_save {self.email_korisnik=email_korisnik.downcase}
     validates :ime_korisnik, presence: true, length: {minimum:3, maximum:40} 
     VALID_EMAIL_REGEX = /\A[\w+\-,]+@[a-z\d\-,]+\.[a-z]+\z/i

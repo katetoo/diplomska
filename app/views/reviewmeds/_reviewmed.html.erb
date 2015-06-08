@@ -1,0 +1,12 @@
+<div>
+    <p><%= komentar.user.ime_korisnik %>:</p>
+    <p><%= komentar.komentar_na_lek %></p>
+
+    <% if logged_in? && (komentar.user == current_user || current_user.admin?) %>
+    <div class="pull-right small">
+      <%= link_to "[Измени]", edit_medicament_reviewmed_path(@medname, komentar) %>
+      <%= link_to "[Избриши]", [@medname, komentar], method: :delete %>
+    </div>
+    <% end %>
+    <hr/>
+</div>

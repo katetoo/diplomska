@@ -8,6 +8,8 @@ class GenericNamesController < ApplicationController
     def show
         @generic_name = GenericName.find(params[:id])
         @medicaments= @generic_name.medicaments
+        @comment = Reviewgeneric.new
+        @komgens = GenericName.find(params[:id]).reviewgenerics
     end
     
     def new

@@ -7,6 +7,8 @@ class MedicamentsController < ApplicationController
     
     def show
         @medicament = Medicament.find(params[:id])
+        @commentt = Reviewmed.new
+        @kommeds = Medicament.find(params[:id]).reviewmeds
     end
     
     def new

@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/home', to: 'pages#home'
   
+  resources :generic_names do
+    resources :reviewgenerics , only: [:create, :edit, :update, :destroy]
+  end
   resources :medicaments do
-    resources :commentmedicaments, :only => [:create, :new]
+    resources :reviewmeds , only: [:create, :edit, :update, :destroy]
   end
   resources :groups
   resources :subgroups
