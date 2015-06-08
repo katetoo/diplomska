@@ -1,4 +1,5 @@
 class MedicamentsController < ApplicationController
+    before_action :require_admin, only: [:edit, :update]
     
     def index
         @medicaments = Medicament.all
@@ -47,5 +48,12 @@ class MedicamentsController < ApplicationController
     
     def medicament_params
         params.require(:medicament).permit(:ime_lek, :komentar, :producer_id, :generic_name_id)
+    end
+    
+    def require_admin
+      if current_user.admin != true
+        flash[:danger] = "Промена може да направи само администратор"
+        redirect_to medicaments_path
+      end
     end
 end

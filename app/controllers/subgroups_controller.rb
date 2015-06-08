@@ -1,4 +1,5 @@
 class SubgroupsController < ApplicationController
+    before_action :require_admin, only: [:edit, :update]
     
     def index
         @subgroups = Subgroup.all
@@ -49,6 +50,13 @@ class SubgroupsController < ApplicationController
     
     def subgroup_params
         params.require(:subgroup).permit(:ime_podgrupa, :group_id)
+    end
+    
+    def require_admin
+      if current_user.admin != true
+        flash[:danger] = "Промена може да направи само администратор"
+        redirect_to subgroups_path
+      end
     end
     
 end

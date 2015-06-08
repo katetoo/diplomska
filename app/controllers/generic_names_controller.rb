@@ -1,4 +1,5 @@
 class GenericNamesController < ApplicationController
+    before_action :require_admin, only: [:edit, :update]
     
     def index
         @generic_names = GenericName.all
@@ -49,5 +50,12 @@ class GenericNamesController < ApplicationController
     
     def generic_params
         params.require(:generic_name).permit(:genericko_ime, :detalna_podelba, :sostav, :indikacii, :interakcii, :dejstvo, :merki_na_pretpazlivost, :doziranje, :nesakani_dejstva, :kontraindikacii, :substitution_id)
+    end
+    
+    def require_admin
+        if current_user.admin != true
+          flash[:danger] = "Промена може да направи само администратор"
+          redirect_to generic_names_path
+        end
     end
 end

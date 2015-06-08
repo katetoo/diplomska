@@ -1,4 +1,5 @@
 class SubstitutionsController < ApplicationController
+    before_action :require_admin, only: [:edit, :update]
     
     def index
         @substitutions = Substitution.all
@@ -49,5 +50,12 @@ class SubstitutionsController < ApplicationController
     
     def substitution_params
         params.require(:substitution).permit(:ime_podelba, :subgroup_id)
+    end
+    
+    def require_admin
+      if current_user.admin != true
+        flash[:danger] = "Промена може да направи само администратор"
+        redirect_to substitutions_path
+      end
     end
 end

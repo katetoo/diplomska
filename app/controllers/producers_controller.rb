@@ -1,4 +1,5 @@
 class ProducersController < ApplicationController 
+  before_action :require_admin, only: [:edit, :update]
     
     def index
         @producers = Producer.all
@@ -49,4 +50,10 @@ class ProducersController < ApplicationController
         params.require(:producer).permit(:ime_proizvoditel, :poteklo)
       end
     
+      def require_admin
+        if current_user.admin != true
+          flash[:danger] = "Промена може да направи само администратор"
+          redirect_to producers_path
+        end
+      end
 end

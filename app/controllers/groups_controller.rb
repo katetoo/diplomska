@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController 
+    before_action :require_admin, only: [:edit, :update]
     
     def index
         @groups = Group.all
@@ -47,6 +48,13 @@ class GroupsController < ApplicationController
     private
       def group_params
         params.require(:group).permit(:ime_grupa, :subgroup_id, :medicament_id)
+      end
+      
+      def require_admin
+        if current_user.admin != true
+          flash[:danger] = "Промена може да направи само администратор"
+          redirect_to groups_path
+        end
       end
     
 end

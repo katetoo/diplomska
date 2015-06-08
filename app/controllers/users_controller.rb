@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+  before_action :require_same_user, only: [:edit, :update]
         
     def index
        @users = User.paginate(page: params[:page], per_page: 10) 
@@ -41,5 +41,12 @@ class UsersController < ApplicationController
       def user_params
         params.require(:user).permit(:ime_korisnik, :prezime_korisnik, :email_korisnik, :profesija_korisnik, :admin, :password)
       end
+      
+      def require_same_user
+          if current_user != @user && current_user.admin != true
+            flash[:danger] = "Можете да го измените само Вашиот профил"
+            redirect_to root_path
+          end
+        end
     
 end
