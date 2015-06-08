@@ -18,7 +18,7 @@ class ReviewgenericsController < ApplicationController
 
   def edit
     @genname = GenericName.find(params[:generic_name_id])
-    @komentar = Reviewgeneric.find(params[:id])
+    @reviewgen = Reviewgeneric.find(params[:id])
   end
 
   def update
@@ -45,7 +45,7 @@ class ReviewgenericsController < ApplicationController
 
   def require_same_user
     @genname = GenericName.find(params[:generic_name_id])
-    if current_user != Reviewgeneric.find(params[:id]).user && !current_user.admin?
+    if  !current_user.admin?
       flash[:danger] = "Можете да ги менувате само Вашите коментари"
       redirect_to generic_name_path(@genname)
     end

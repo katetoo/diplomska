@@ -1,14 +1,14 @@
-<%= render 'shared/page_title', title: "Измени коментар" %>
+<%= render 'shared/page_title', title: "Edit Your Commnet" %>
 
-<%= render 'shared/errors', obj: @komentar %>
+<%= render 'shared/errors', obj: @reviewgen.id %>
 
 <div class="row">
   <div class="well col-md-8 col-md-offset-2">
-    <%= form_for ([@genname, @komentar]) do |f| %>
-      <%= f.label 'Измени' %>
-      <%= f.text_area :komentar_na_generika %>
+    <%= form_for ([@recipe, @reviewgen.id]) do |f| %>
+      <%= f.label 'Edit Comment' %>
+      <%= f.text_area :body %>
 
-      <%= f.submit(@komentar.new_record? ? 'Коментирај' : 'Измени', class: "btn btn-success") %>
+      <%= f.submit(@reviewgen.id.new_record? ? 'Submit' : 'Update Comment', class: "btn btn-success") %>
     <% end %>
   </div>
 </div>
