@@ -2,7 +2,7 @@ class GenericNamesController < ApplicationController
     before_action :require_admin, only: [:edit, :update]
     
     def index
-        @generic_names = GenericName.all
+        @generic_names = GenericName.all.paginate(page: params[:page], per_page: 6)
     end
     
     def show

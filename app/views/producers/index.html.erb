@@ -1,5 +1,6 @@
 <%= render 'shared/page_title', title: "Сите производители" %>
 
+<%= will_paginate %>
 <% @producers.each do |prod| %>
     <div class="row">
         <div class="col-lg-12 well">
@@ -10,3 +11,4 @@
     </div>
     <hr/>
 <% end %>
+<%= will_paginate %>

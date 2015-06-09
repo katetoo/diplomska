@@ -1,5 +1,6 @@
 <%= render 'shared/page_title', title: "Сите поделби на лекови" %>
 
+<%= will_paginate %>
 <% @substitutions.each do |substitution| %>
     <div class="row">
         
@@ -14,3 +15,4 @@
     </div>
     <hr/>
 <% end %>
+<%= will_paginate %>

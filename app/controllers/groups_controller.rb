@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
     before_action :require_admin, only: [:edit, :update]
     
     def index
-        @groups = Group.all
+        @groups = Group.all.paginate(page: params[:page], per_page: 6)
     end
     
     def new

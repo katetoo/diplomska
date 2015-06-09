@@ -1,5 +1,6 @@
 <%= render 'shared/page_title', title: "Сите групи на лекови" %>
 
+<%= will_paginate %>
 <% @groups.each do |group| %>
     <div class="row">
         <div class="col-lg-12 well">
@@ -10,4 +11,4 @@
     </div>
     <hr/>
 <% end %>
-
+<%= will_paginate %>

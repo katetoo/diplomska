@@ -3,7 +3,7 @@ class ReviewmedsController < ApplicationController
   before_action :require_same_user, only: [:update, :edit, :destroy]
 
   def create
-    @kommed = Medicament.find(params[:medicament_id]).reviewmeds.paginate(page: params[:page], per_page: 4)
+    @kommed = Medicament.find(params[:medicament_id]).reviewmeds.paginate(page: params[:page], per_page: 6)
     @medname = Medicament.find(params[:medicament_id])
     @komentarr = @medname.reviewmeds.build(commentm_params)
     @komentarr.user = current_user

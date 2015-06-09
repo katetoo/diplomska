@@ -2,7 +2,7 @@ class ProducersController < ApplicationController
   before_action :require_admin, only: [:edit, :update]
     
     def index
-        @producers = Producer.all
+        @producers = Producer.all.paginate(page: params[:page], per_page: 6)
     end
     
     def new

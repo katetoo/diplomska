@@ -3,7 +3,7 @@ class ReviewgenericsController < ApplicationController
   before_action :require_same_user, only: [:update, :edit, :destroy]
 
   def create
-    @komgen = GenericName.find(params[:generic_name_id]).reviewgenerics.paginate(page: params[:page], per_page: 4)
+    @komgen = GenericName.find(params[:generic_name_id]).reviewgenerics.paginate(page: params[:page], per_page: 6)
     @genname = GenericName.find(params[:generic_name_id])
     @komentar = @genname.reviewgenerics.build(comment_params)
     @komentar.user = current_user
@@ -17,7 +17,7 @@ class ReviewgenericsController < ApplicationController
   end
 
   def edit
-    @komgens = GenericName.find(params[:id]).reviewgenerics
+    @komgens = GenericName.find(params[:id]).reviewgenerics.paginate(page: params[:page], per_page: 6)
     @genname = GenericName.find(params[:generic_name_id])
     
     @reviewgen = Reviewgeneric.find(params[:id])
@@ -47,7 +47,7 @@ class ReviewgenericsController < ApplicationController
 
   def require_same_user
     @genname = GenericName.find(params[:generic_name_id])
-    @review = @genname.reviewgenerics.find(params[:id])
+    @review = @genname.reviewgenerics.find(params[:id]).paginate(page: params[:page], per_page: 6)
     if  !current_user.admin? &&  @review.user != current_user
       flash[:danger] = "Можете да ги менувате само Вашите коментари"
       redirect_to generic_name_path(@genname)

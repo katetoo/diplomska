@@ -2,7 +2,7 @@ class SubstitutionsController < ApplicationController
     before_action :require_admin, only: [:edit, :update]
     
     def index
-        @substitutions = Substitution.all
+        @substitutions = Substitution.all.paginate(page: params[:page], per_page: 6)
     end
     
     def show

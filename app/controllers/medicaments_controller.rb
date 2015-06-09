@@ -2,7 +2,7 @@ class MedicamentsController < ApplicationController
     before_action :require_admin, only: [:edit, :update]
     
     def index
-        @medicaments = Medicament.all
+        @medicaments = Medicament.all.paginate(page: params[:page], per_page: 6)
     end
     
     def show

@@ -2,7 +2,7 @@ class SubgroupsController < ApplicationController
     before_action :require_admin, only: [:edit, :update]
     
     def index
-        @subgroups = Subgroup.all
+        @subgroups = Subgroup.all.paginate(page: params[:page], per_page: 6)
     end
     
     def show
