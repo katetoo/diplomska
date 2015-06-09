@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608122239) do
+ActiveRecord::Schema.define(version: 20150609152126) do
 
   create_table "generic_names", force: true do |t|
     t.string "genericko_ime"
     t.string "detalna_podelba"
-    t.string "sostav"
-    t.string "indikacii"
-    t.string "interakcii"
-    t.string "dejstvo"
-    t.string "merki_na_pretpazlivost"
-    t.string "doziranje"
-    t.string "nesakani_dejstva"
-    t.string "kontraindikacii"
+    t.text   "sostav",                 limit: 255
+    t.text   "indikacii",              limit: 255
+    t.text   "interakcii",             limit: 255
+    t.text   "dejstvo",                limit: 255
+    t.text   "merki_na_pretpazlivost", limit: 255
+    t.text   "doziranje",              limit: 255
+    t.text   "nesakani_dejstva",       limit: 255
+    t.text   "kontraindikacii",        limit: 255
     t.string "substitution_id"
   end
 
