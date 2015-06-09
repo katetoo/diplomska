@@ -1,9 +1,15 @@
-<div>
-    <% if logged_in? && (@reviewgen.user == current_user || current_user.admin?) %>
-    <div class="pull-right small">
-      <%= link_to "[Edit]", edit_generic_name_reviewgeneric(@reviewgen.id) %>
-      <%= link_to "[Delete]", [@generic_name, @reviewgen], method: :delete %>
+
+<div class="col-lg-12 offset-2 well">
+  <h4>Коментари од корисници:</h4>
+  <% @komgens.each do |k| %>
+    <div class="col-lg-12 offset-2 well">
+      <h5><%= k.user.ime_korisnik %> <%= k.user.prezime_korisnik %> <% if k.user.profesija_korisnik.present? %> ( <%= k.user.profesija_korisnik %> ): <% end %></h5>
+      <h4><%= k.komentar_na_generika %></h4>
+      <% if k.user == current_user || current_user.admin? %>
+        <div class="pull-right small">
+          <%= link_to "[Измени]", edit_generic_name_reviewgeneric_path(k.generic_name, k.id) %>
+        </div>
+      <% end %>
     </div>
-    <% end %>
-    <hr/>
+  <% end %>
 </div>

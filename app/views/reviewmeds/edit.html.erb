@@ -1,14 +1,14 @@
 <%= render 'shared/page_title', title: "Измени коментар" %>
 
-<%= render 'shared/errors', obj: @komentar %>
+<%= render 'shared/errors', obj:  @medname %>
 
 <div class="row">
   <div class="well col-md-8 col-md-offset-2">
-    <%= form_for ([@medname, @komentar]) do |f| %>
-      <%= f.label 'Измени' %>
+    <%= form_for ([@medname, @komentarr]) do |f| %>
+      <%= f.label 'Коментар' %>
       <%= f.text_area :komentar_na_lek %>
 
-      <%= f.submit(@komentar.new_record? ? 'Коментирај' : 'Измени', class: "btn btn-success") %>
+      <%= f.submit(@komentarr.new_record? ? 'Submit' : 'Промени', class: "btn btn-success") %>
     <% end %>
   </div>
 </div>

@@ -18,6 +18,7 @@ class ReviewmedsController < ApplicationController
 
   def edit
     @medname = Medicament.find(params[:medicament_id])
+    @kommeds = GenericName.find(params[:id]).reviewgenerics
     @komentarr = Reviewmed.find(params[:id])
   end
 
