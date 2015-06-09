@@ -14,6 +14,9 @@
         <strong>Генеричко име:</strong>
         
         <%= f.collection_select(:generic_name_id, GenericName.all, :id, :genericko_ime, {:include_blank => ''}) %>
+        
+        <%= f.label :Својства %>
+        <%= f.text_field :komentar %>
 
         <%= f.submit 'Креирај', class: "btn btn-success" %>
         <% end %>
