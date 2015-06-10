@@ -4,16 +4,16 @@
 <div class="row">
     <div class="well col-md-8 col-md-offset-2">
         <%= form_for @subgroup do |f| %>
-        <%= f.label :Име_на_подгрупа %>
-        <%= f.text_field :ime_podgrupa %>
+        <%= f.label :"Име на подгрупа:" %>
+        <%= f.text_field :ime_podgrupa, :size => "40" %>
         
-        </br>
+        </br></br>
         
         <strong>Група:</strong>
         
         <%= f.collection_select(:group_id, Group.all, :id, :ime_grupa, {:include_blank => ''}) %>
 
-        
+        </br></br>
         <%= f.submit 'Креирај', class: "btn btn-success pull-right" %>
         <% end %>
     </div>

@@ -8,30 +8,30 @@
             <h4>Овој лек припаѓа во <%= @generic_name.detalna_podelba %>, дел од <%= @generic_name.substitution.ime_podelba %></h4>
         <% end %>
         <% if @generic_name.sostav.present? %>
-            <h4>Состав: <%= @generic_name.sostav %></h4>
+            <h4><u>Состав:</u></br><%= @generic_name.sostav %></h4>
         <% end %>
         <% if @generic_name.indikacii.present? %>
-            <h4>Индикации: <%= @generic_name.indikacii %></h4>
+            <h4><u>Индикации:</u></br><%= @generic_name.indikacii %></h4>
         <% end %>
         <% if @generic_name.interakcii.present? %>
-            <h4>Интеракции: <%= @generic_name.interakcii %></h4>
+            <h4><u>Интеракции:</u></br><%= @generic_name.interakcii %></h4>
         <% end %>
         <% if @generic_name.dejstvo.present? %>
-            <h4>Дејство: <%= @generic_name.dejstvo %></h4>
+            <h4><u>Дејство:</u></br><%= @generic_name.dejstvo %></h4>
         <% end %>
         <% if @generic_name.merki_na_pretpazlivost.present? %>
-            <h4>Мерки на претпазливост: <%= @generic_name.merki_na_pretpazlivost %></h4>
+            <h4><u>Мерки на претпазливост:</u></br><%= @generic_name.merki_na_pretpazlivost %></h4>
         <% end %>
         <% if @generic_name.doziranje.present? %>
-            <h4>Дозирање: <%= @generic_name.doziranje %></h4>
+            <h4><u>Дозирање:</u></br><%= @generic_name.doziranje %></h4>
         <% end %>
         <% if @generic_name.nesakani_dejstva.present? %>
-            <h4>Несакани дејства: <%= @generic_name.nesakani_dejstva %></h4>
+            <h4><u>Несакани дејства:</u></br><%= @generic_name.nesakani_dejstva %></h4>
         <% end %>
         <% if @generic_name.kontraindikacii.present? %>
-            <h4>Контраиндикации: <%= @generic_name.kontraindikacii %></h4>
+            <h4><u>Контраиндикации:</u></br><%= @generic_name.kontraindikacii %></h4>
         <% end %>
-        <h4>Овој генерички лек го има со следниве фабрички имиња:</h4>
+        <h4><strong><u>Овој генерички лек го има со следниве фабрички имиња:</u></strong></h4>
         <% @medicaments.each do |med| %>
             <div class="col-lg-10 offset-2 well">
                 <h4><%= link_to med.ime_lek, medicaments_path %></h4>

@@ -4,13 +4,13 @@
 <div class="row">
     <div class="well col-md-8 col-md-offset-2">
         <%= form_for @producer do |f| %>
-        <%= f.label :Име_на_производител %>
-        <%= f.text_field :ime_proizvoditel %>
-        
-        <%= f.label :Потекло %>
-        <%= f.text_field :poteklo %>
-
-        <%= f.submit 'Креирај', class: "btn btn-success" %>
+        <%= f.label :"Име на производител:" %>
+        <%= f.text_field :ime_proizvoditel, :size => "40" %>
+        </br></br>
+        <%= f.label :"Потекло:" %>
+        <%= f.text_field :poteklo, :size => "40" %>
+        </br></br>
+        <%= f.submit 'Креирај', class: "btn btn-success pull-right" %>
         <% end %>
     </div>
 </div>

@@ -5,7 +5,7 @@
                 <h3><%= link_to @subgroup.ime_podgrupa, subgroup_path(@subgroup) %></h3>
             </section>
             </br>
-            <h4>Подгрупата се дели на:</h4>
+            <h4><u>Подгрупата се дели на:</u></h4>
             <% @substitutions.each do |substitution| %>
                 <div class="col-lg-10 offset-2 well">
                     <h4><%= link_to substitution.ime_podelba, substitution_path(substitution) %></h4>

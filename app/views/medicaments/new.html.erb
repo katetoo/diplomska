@@ -4,21 +4,22 @@
 <div class="row">
     <div class="well col-md-8 col-md-offset-2">
         <%= form_for @medicament do |f| %>
-        <%= f.label :Име_на_лек %>
-        <%= f.text_field :ime_lek %>
-        
+        <%= f.label :"Име на лек:" %>
+        <%= f.text_field :ime_lek, :size => "40" %>
+        </br></br>
         <strong>Производител:</strong>
         
         <%= f.collection_select(:producer_id, Producer.all, :id, :ime_proizvoditel, {:include_blank => ''}) %>
-        
+        </br></br>
         <strong>Генеричко име:</strong>
         
         <%= f.collection_select(:generic_name_id, GenericName.all, :id, :genericko_ime, {:include_blank => ''}) %>
+        </br></br>
+        <%= f.label :"Својства:" %>
+        <%= f.text_field :komentar, :size => "40" %>
         
-        <%= f.label :Својства %>
-        <%= f.text_field :komentar %>
-
-        <%= f.submit 'Креирај', class: "btn btn-success" %>
+        </br></br>
+        <%= f.submit 'Креирај', class: "btn btn-success pull-right" %>
         <% end %>
     </div>
 </div>

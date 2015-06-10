@@ -4,16 +4,16 @@
 <div class="row">
     <div class="well col-md-8 col-md-offset-2">
         <%= form_for @substitution do |f| %>
-        <%= f.label :Име_на_поделба %>
-        <%= f.text_field :ime_podelba %>
+        <%= f.label :"Име на поделба:" %>
+        <%= f.text_field :ime_podelba, :size => "40" %>
         
-        </br>
+        </br></br>
         
         <strong>Подгрупа:</strong>
         
         <%= f.collection_select(:subgroup_id, Subgroup.all, :id, :ime_podgrupa, {:include_blank => ''}) %>
 
-        
+        </br></br>
         <%= f.submit 'Креирај', class: "btn btn-success pull-right" %>
         <% end %>
     </div>

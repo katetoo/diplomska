@@ -5,7 +5,7 @@
                 <h3><%= link_to @substitution.ime_podelba, substitution_path(@substitution) %></h3>
             </section>
             </br>
-            <h4>Овде спаѓаат следниве генерички лекови:</h4>
+            <h4><u>Овде спаѓаат следниве генерички лекови:</u></h4>
             <% @generics.each do |gen| %>
                 <div class="col-lg-10 offset-2 well">
                     <h4><%= link_to gen.genericko_ime, generic_name_path(gen) %></h4>

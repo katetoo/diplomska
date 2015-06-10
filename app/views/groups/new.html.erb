@@ -4,10 +4,10 @@
 <div class="row">
     <div class="well col-md-8 col-md-offset-2">
         <%= form_for @group do |f| %>
-        <%= f.label :Име_на_група %>
-        <%= f.text_field :ime_grupa %>
-
-        <%= f.submit 'Креирај', class: "btn btn-success" %>
+        <%= f.label :"Име на група:" %>
+        <%= f.text_field :ime_grupa, :size => "40" %>
+        </br></br>
+        <%= f.submit 'Креирај', class: "btn btn-success pull-right" %>
         <% end %>
     </div>
 </div>
