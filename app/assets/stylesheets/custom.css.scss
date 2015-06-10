@@ -64,6 +64,7 @@ body a {
 .btn
 {
   background-color: #F5F5F5;
+  opacity: 1;
 }
 .btn-default 
 {
@@ -71,11 +72,42 @@ body a {
   background-color: rgb(81, 78, 78);
   border-color: #5E5A5A;
   margin-right: 10px;
+  opacity: 1;
+}
+
+.btn-default:hover
+{
+  color: #333333;
+  background-color: rgb(81, 78, 78);
+  border-color: #5E5A5A;
+  margin-right: 10px;
+  opacity: 0.75;
 }
 
 .btn-danger
 {
   background-color: #B61D18;
+  opacity: 1;
+}
+
+.btn-danger:hover
+{
+  background-color: #B61D18;
+  opacity: 0.75;
+}
+
+.btn-success
+{
+  background-color: #5DB3E5;
+  border-color: #3585DE;
+  opacity: 1;
+}
+
+.btn-success:hover
+{
+  background-color: #5DB3E5;
+  border-color: #3585DE;
+  opacity: 0.75;
 }
 
 .center
