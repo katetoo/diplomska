@@ -20,11 +20,13 @@
             <% end %>
           <% end %>
         </div>
-        <div class="col-md-12 well">
-            <button class="btn pull-left"><%= link_to "Додај нов лек", new_medicament_path %></button>
-            <button class="btn pull-right btn-danger"><%= link_to "Избриши лек", @medicament, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да го избришете овој лек?"} %></button>
-            <button class="btn pull-right"><%= link_to "Измени", edit_medicament_path(@medicament.id) %></button>
-        </div>
+        <% if logged_in? && (current_user.admin) %>
+            <div class="col-md-12 well">
+                <button class="btn pull-left"><%= link_to "Додај нов лек", new_medicament_path %></button>
+                <button class="btn pull-right btn-danger"><%= link_to "Избриши лек", @medicament, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да го избришете овој лек?"} %></button>
+                <button class="btn pull-right"><%= link_to "Измени", edit_medicament_path(@medicament.id) %></button>
+            </div>
+        <% end %>
     </section>
 </div>
         

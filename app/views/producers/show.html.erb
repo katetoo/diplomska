@@ -6,20 +6,24 @@
                 <h4>Потекло: <%= @producer.poteklo %></h4>
             </section>
             </br>
-            <h4><u>Лекови кои ги произведува:</u></h4>
-            <% @medicaments.each do |med| %>
-                <div class="col-lg-10 offset-2 well">
-                    <h4><%= link_to med.ime_lek, medicament_path(med) %></h4>
-                </div>
+            <% if @medicaments.any? %>
+                <h4><u>Лекови кои ги произведува:</u></h4>
+                <% @medicaments.each do |med| %>
+                    <div class="col-lg-10 offset-2 well">
+                        <h4><%= link_to med.ime_lek, medicament_path(med) %></h4>
+                    </div>
+                <% end %>
+            <% else %>
+                <h4>Овој производител нема регистрирани лекови во Република Македонија.</h4>
             <% end %>
-            
         </div>
-        <div class="col-md-12 well">
-            <button class="btn pull-left"><%= link_to "Додај нов производител", new_producer_path %></button>
-            <button class="btn pull-left"><%= link_to "Додај нов лек", new_medicament_path %></button>
-            <button class="btn pull-right btn-danger"><%= link_to "Избриши производител", @producer, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да го избришете овој производител??"} %></button>
-            <button class="btn pull-right"><%= link_to "Измени", edit_producer_path(@producer.id) %></button>
-        </div>
-        
+        <% if logged_in? && (current_user.admin) %>
+            <div class="col-md-12 well">
+                <button class="btn pull-left"><%= link_to "Додај нов производител", new_producer_path %></button>
+                <button class="btn pull-left"><%= link_to "Додај нов лек", new_medicament_path %></button>
+                <button class="btn pull-right btn-danger"><%= link_to "Избриши производител", @producer, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да го избришете овој производител??"} %></button>
+                <button class="btn pull-right"><%= link_to "Измени", edit_producer_path(@producer.id) %></button>
+            </div>
+        <% end %>
         
     <hr/>

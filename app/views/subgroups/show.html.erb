@@ -5,18 +5,22 @@
                 <h3><%= link_to @subgroup.ime_podgrupa, subgroup_path(@subgroup) %></h3>
             </section>
             </br>
-            <h4><u>Подгрупата се дели на:</u></h4>
-            <% @substitutions.each do |substitution| %>
-                <div class="col-lg-10 offset-2 well">
-                    <h4><%= link_to substitution.ime_podelba, substitution_path(substitution) %></h4>
-                </div>
+            <% if @substitutions.any? %>
+                <h4><u>Подгрупата се дели на:</u></h4>
+                <% @substitutions.each do |substitution| %>
+                    <div class="col-lg-10 offset-2 well">
+                        <h4><%= link_to substitution.ime_podelba, substitution_path(substitution) %></h4>
+                    </div>
+                <% end %>
+            <% else %>
+                <h4>Оваа подгрупа не е сеуште доработена.</h4>
             <% end %>
-            
         </div>
-        <div class="col-lg-12 well">
-            <button class="btn pull-left"><%= link_to "Додај нова поделба", new_substitution_path %></button>
-            <button class="btn pull-right btn-danger"><%= link_to "Избриши група", @subgroup, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да ја избришете подгрупата?"} %></button>
-            <button class="btn pull-right"><%= link_to "Измени", edit_subgroup_path(@subgroup.id) %></button>
-        </div>
-        
+        <% if logged_in? && (current_user.admin) %>
+            <div class="col-lg-12 well">
+                <button class="btn pull-left"><%= link_to "Додај нова поделба", new_substitution_path %></button>
+                <button class="btn pull-right btn-danger"><%= link_to "Избриши група", @subgroup, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да ја избришете подгрупата?"} %></button>
+                <button class="btn pull-right"><%= link_to "Измени", edit_subgroup_path(@subgroup.id) %></button>
+            </div>
+        <% end %>
     <hr/>

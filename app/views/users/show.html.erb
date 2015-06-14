@@ -7,7 +7,7 @@
                 <% if @user.profesija_korisnik.present? %>
                     <h4>Професија: <%= @user.profesija_korisnik %></h4>
                 <% end %>
-                <% if current_user.admin %>
+                <% if logged_in? && current_user.admin %>
                     <button class="btn pull-right"><%= link_to 'Измени', edit_user_path(@user) %></button>
                     <button class="btn pull-left"><%= link_to 'Избриши го овој корисник', @user, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да го избришете овој корисник?"} %></button>
                 <% end %>

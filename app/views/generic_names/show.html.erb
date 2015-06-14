@@ -31,11 +31,15 @@
         <% if @generic_name.kontraindikacii.present? %>
             <h4><u>Контраиндикации:</u></br><%= @generic_name.kontraindikacii %></h4>
         <% end %>
-        <h4><strong><u>Овој генерички лек го има со следниве фабрички имиња:</u></strong></h4>
-        <% @medicaments.each do |med| %>
-            <div class="col-lg-10 offset-2 well">
-                <h4><%= link_to med.ime_lek, medicaments_path %></h4>
-            </div>
+        <% if @medicaments.any? %>
+            <h4><strong><u>Овој генерички лек го има со следниве фабрички имиња:</u></strong></h4>
+            <% @medicaments.each do |med| %>
+                <div class="col-lg-10 offset-2 well">
+                    <h4><%= link_to med.ime_lek, medicaments_path %></h4>
+                </div>
+            <% end %>
+        <% else %>
+            <h4>Нема регистрирани лекови во Република Македонија со ова генеричко име.</h4>
         <% end %>
         <hr>
         <% if @komgens.any? %>
@@ -50,11 +54,13 @@
             <% end %>
           <% end %>
         </div>
-        <div class="col-lg-12 well">
-            <button class="btn pull-left"><%= link_to "Додај нов генерички лек", new_generic_name_path %></button>
-            <button class="btn pull-right btn-danger"><%= link_to "Избриши го овој генерички лек", @substitution, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да го избришете овој лек?"} %></button>
-            <button class="btn pull-right"><%= link_to "Измени", edit_generic_name_path %></button>
-        </div>
+        <% if logged_in? && (current_user.admin) %>
+            <div class="col-lg-12 well">
+                <button class="btn pull-left"><%= link_to "Додај нов генерички лек", new_generic_name_path %></button>
+                <button class="btn pull-right btn-danger"><%= link_to "Избриши го овој генерички лек", @substitution, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да го избришете овој лек?"} %></button>
+                <button class="btn pull-right"><%= link_to "Измени", edit_generic_name_path %></button>
+            </div>
+        <% end %>
     </section>
 </div>
         

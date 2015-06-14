@@ -5,18 +5,22 @@
                 <h3><%= link_to @substitution.ime_podelba, substitution_path(@substitution) %></h3>
             </section>
             </br>
-            <h4><u>Овде спаѓаат следниве генерички лекови:</u></h4>
-            <% @generics.each do |gen| %>
-                <div class="col-lg-10 offset-2 well">
-                    <h4><%= link_to gen.genericko_ime, generic_name_path(gen) %></h4>
-                </div>
+            <% if @generics.any? %>
+                <h4><u>Овде спаѓаат следниве генерички лекови:</u></h4>
+                <% @generics.each do |gen| %>
+                    <div class="col-lg-10 offset-2 well">
+                        <h4><%= link_to gen.genericko_ime, generic_name_path(gen) %></h4>
+                    </div>
+                <% end %>
+            <% else %>
+                <h4>Оваа подгрупа сеуште не е доработена.</h4>
             <% end %>
-            
         </div>
-        <div class="col-lg-12 well">
-            <button class="btn pull-left"><%= link_to "Додај нов генерички лек", new_generic_name_path %></button>
-            <button class="btn pull-right btn-danger"><%= link_to "Избриши поделба", @substitution, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да ја избришете поделбата?"} %></button>
-            <button class="btn pull-right"><%= link_to "Измени", edit_substitution_path %></button>
-        </div>
-        
+        <% if logged_in? && (current_user.admin) %>
+            <div class="col-lg-12 well">
+                <button class="btn pull-left"><%= link_to "Додај нов генерички лек", new_generic_name_path %></button>
+                <button class="btn pull-right btn-danger"><%= link_to "Избриши поделба", @substitution, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да ја избришете поделбата?"} %></button>
+                <button class="btn pull-right"><%= link_to "Измени", edit_substitution_path %></button>
+            </div>
+        <% end %>
     <hr/>

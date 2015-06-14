@@ -14,11 +14,13 @@
             <% end %>
             
         </div>
-        <div class="col-md-12 well">
-            <button class="btn pull-left"><%= link_to "Додај нова подгрупа", new_subgroup_path %></button>
-            <button class="btn pull-right btn-danger"><%= link_to "Избриши група", @group, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да ја избришете групата?"} %></button>
-            <button class="btn pull-right"><%= link_to "Измени", edit_group_path(@group.id) %></button>
-        </div>
+        <% if logged_in? && (current_user.admin) %>
+            <div class="col-md-12 well">
+                <button class="btn pull-left"><%= link_to "Додај нова подгрупа", new_subgroup_path %></button>
+                <button class="btn pull-right btn-danger"><%= link_to "Избриши група", @group, method: :delete, data: {confirm: "Дали сте сигурни дека сакате да ја избришете групата?"} %></button>
+                <button class="btn pull-right"><%= link_to "Измени", edit_group_path(@group.id) %></button>
+            </div>
+        <% end %>
         
         
     <hr/>
