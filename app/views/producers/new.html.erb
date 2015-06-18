@@ -10,7 +10,21 @@
         <%= f.label :"Потекло:" %>
         <%= f.text_field :poteklo, :size => "40" %>
         </br></br>
+        <span class="picture">
+            <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
+        </span>
+        </br></br>
         <%= f.submit 'Креирај', class: "btn btn-success pull-right" %>
         <% end %>
     </div>
 </div>
+
+<script type = "text/javascript">
+  $('#producer_picture').bind('change', function() {
+    size_in_megabytes=this.files[0].size/1024/1024;
+    if (size_in_megabytes>5)
+    {
+      alert('Максималната големина на слика е 5MB. Ве молиме одберете помала слика.');
+    }
+  });
+</script> 

@@ -2,6 +2,9 @@
         
         <div class="col-lg-12 well">
             <section class="group_info center">
+                <div class="show_producer">
+                  <%= image_tag(@producer.picture.url, class:"gravatar") if @producer.picture? %>
+                </div>
                 <strong> <h3><u></u>Име на производител:</u> <%= @producer.ime_proizvoditel %></h3> </strong>
                 <h4>Потекло: <%= @producer.poteklo %></h4>
             </section>

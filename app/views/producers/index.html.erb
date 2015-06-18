@@ -3,11 +3,15 @@
 <%= will_paginate %>
 <% @producers.each do |prod| %>
     <div class="row">
-        <div class="col-lg-12 well">
+        <div class="col-md-4">
+          <%= image_tag(prod.picture.url, size: "250x150", class: "gravatar") if prod.picture? %>
+        </div>
+        <div class="col-lg-8 well">
             <section class="chef_info center">
                <h3> <%= link_to prod.ime_proizvoditel, producer_path(prod) %></h3>
             </section>
         </div>
+        
     </div>
     <hr/>
 <% end %>

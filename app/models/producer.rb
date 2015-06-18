@@ -3,4 +3,5 @@ class Producer < ActiveRecord::Base
   
   validates :ime_proizvoditel, presence: true
   validates :poteklo, presence: true
+  mount_uploader :picture, PictureUploader
 end

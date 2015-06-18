@@ -4,10 +4,26 @@
 <div class="row">
     <div class="well col-md-10 col-md-offset-2">
         <%= form_for(@producer, html: { multipart: true }) do |f| %>
-        <%= f.label :Име_на_производител %>
+        <%= f.label :"Име на производител:" %>
         <%= f.text_field :ime_proizvoditel %>
+        <%= f.label :"Потекло:" %>
+        <%= f.text_field :poteklo %>
+        <span class="picture">
+            <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
+        </span>
+        </br></br>
         
         <%= f.submit 'Измени', class: "btn btn-success" %>
         <% end %>
     </div>
 </div>
+
+<script type = "text/javascript">
+  $('#producer_picture').bind('change', function() {
+    size_in_megabytes=this.files[0].size/1024/1024;
+    if (size_in_megabytes>5)
+    {
+      alert('Максималната големина на слика е 5MB. Ве молиме одберете помала слика.');
+    }
+  });
+</script> 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609152126) do
+ActiveRecord::Schema.define(version: 20150618205052) do
 
   create_table "generic_names", force: true do |t|
     t.string "genericko_ime"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150609152126) do
   create_table "producers", force: true do |t|
     t.string "ime_proizvoditel"
     t.string "poteklo"
+    t.string "picture"
   end
 
   create_table "reviewgenerics", force: true do |t|
