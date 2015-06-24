@@ -17,7 +17,7 @@ class ReviewgenericsController < ApplicationController
   end
 
   def edit
-    @komgens = GenericName.find(params[:id]).reviewgenerics.paginate(page: params[:page], per_page: 6)
+    
     @genname = GenericName.find(params[:generic_name_id])
     
     @reviewgen = Reviewgeneric.find(params[:id])
