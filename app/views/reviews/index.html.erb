@@ -1,5 +1,5 @@
 <%= render 'shared/page_title', title: "Коментари од корисници" %>
-
+  <% if @rgen.any? %>
     <div class="col-lg-12 offset-2 well">
       <h4>Сите коментари на генерички имиња на лекови кои не се одобрени</h4>
       <% @rgen.each do |rg| %>
@@ -22,6 +22,8 @@
       <% end %>
       <% end %>
     </div>
+  <% end %>
+  <% if @rmed.any? %>
     <div class="col-lg-12 offset-2 well">
       <h4>Сите коментари на лекови кои не се одобрени</h4>
       <% @rmed.each do |rm| %>
@@ -44,3 +46,4 @@
       <% end %>
       <% end %>
     </div>
+  <% end %>
