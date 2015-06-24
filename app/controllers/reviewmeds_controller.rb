@@ -9,7 +9,7 @@ class ReviewmedsController < ApplicationController
     @komentarr.user = current_user
 
     if @komentarr.save
-      flash[:success] = "Вашиот коментар е зачуван"
+      flash[:success] = "Вашиот коментар е зачуван, се чека дозвола од администратор"
       redirect_to medicament_path(@medname)
     else
       render medicaments_path
@@ -41,7 +41,7 @@ class ReviewmedsController < ApplicationController
 
   private
     def commentm_params
-      params.require(:reviewmed).permit(:medicament_id, :komentar_na_lek)
+      params.require(:reviewmed).permit(:medicament_id, :komentar_na_lek, :approve)
     end
 
   def require_same_user

@@ -35,7 +35,7 @@
             <h4><strong><u>Овој генерички лек го има со следниве фабрички имиња:</u></strong></h4>
             <% @medicaments.each do |med| %>
                 <div class="col-lg-10 offset-2 well">
-                    <h4><%= link_to med.ime_lek, medicaments_path %></h4>
+                    <h4><%= link_to med.ime_lek, medicament_path(med) %></h4>
                 </div>
             <% end %>
         <% else %>

@@ -11,15 +11,15 @@
         <% if @kommeds.any? %>
             <%= render 'reviewmeds/reviewmed', obj: @kommeds %>
         <% end %>
+        <% if logged_in? %>
         <div class="col-lg-12 well">
-          <% if logged_in? %>
             <%= form_for([@medicament, @commentt]) do |c| %>
               <%= c.label "Додади коментар:" %>
               <%= c.text_area :komentar_na_lek %>
               <%= c.submit "Коментирај" %>
             <% end %>
-          <% end %>
         </div>
+        <% end %>
         <% if logged_in? && (current_user.admin) %>
             <div class="col-md-12 well">
                 <button class="btn pull-left"><%= link_to "Додај нов лек", new_medicament_path %></button>

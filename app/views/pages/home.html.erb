@@ -7,6 +7,13 @@
     <%= link_to "Регистрирај се!" , new_user_path , class: "btn btn-large btn-success" %>
   </div>
 <% end %>
+<% if current_user.admin %>
+  <div class="center jumbotron">
+    <h1>Добредојдовте!</h1>
+    
+    <%= link_to "Прегледајте ги коментарите кои не се одобрени" , reviews_path , class: "btn btn-large btn-success" %>
+  </div>
+<% end %>
 <div class="row">
   <div class="col-lg-4">
     <h3 class="midrow">

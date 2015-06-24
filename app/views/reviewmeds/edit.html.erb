@@ -7,7 +7,12 @@
     <%= form_for ([@medname, @komentarr]) do |f| %>
       <%= f.label 'Коментар' %>
       <%= f.text_area :komentar_na_lek %>
-
+      <% if logged_in? && current_user.admin %>
+        <div class="field">
+          <%= f.label "Одобрен" %> <br />
+          <%= f.check_box :approve %> <br />
+        </div>
+      <% end %>
       <%= f.submit(@komentarr.new_record? ? 'Submit' : 'Промени', class: "btn btn-success") %>
     <% end %>
   </div>

@@ -1,7 +1,7 @@
 class ReviewgenericsController < ApplicationController 
   before_action :require_user
   before_action :require_same_user, only: [:update, :edit, :destroy]
-
+  
   def create
     @komgen = GenericName.find(params[:generic_name_id]).reviewgenerics.paginate(page: params[:page], per_page: 6)
     @genname = GenericName.find(params[:generic_name_id])
@@ -42,12 +42,12 @@ class ReviewgenericsController < ApplicationController
 
   private
     def comment_params
-      params.require(:reviewgeneric).permit(:generic_name_id, :komentar_na_generika)
+      params.require(:reviewgeneric).permit(:generic_name_id, :komentar_na_generika, :approve)
     end
 
   def require_same_user
     @genname = GenericName.find(params[:generic_name_id])
-    @review = @genname.reviewgenerics.find(params[:id]).paginate(page: params[:page], per_page: 6)
+    @review = @genname.reviewgenerics.find(params[:id])
     if  !current_user.admin? &&  @review.user != current_user
       flash[:danger] = "Можете да ги менувате само Вашите коментари"
       redirect_to generic_name_path(@genname)

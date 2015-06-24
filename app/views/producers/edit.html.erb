@@ -6,8 +6,13 @@
         <%= form_for(@producer, html: { multipart: true }) do |f| %>
         <%= f.label :"Име на производител:" %>
         <%= f.text_field :ime_proizvoditel %>
+        </br></br>
         <%= f.label :"Потекло:" %>
         <%= f.text_field :poteklo %>
+        </br></br>
+        <%= f.label :"Веб сајт:" %>
+        <%= f.text_field :website, :size => "40" %>
+        </br></br>
         <span class="picture">
             <%= f.file_field :picture, accept: 'image/jpeg, image/gif, image/png' %>
         </span>

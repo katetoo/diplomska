@@ -1,9 +1,14 @@
 <%= render 'shared/page_title', title: "Контакт" %>
         
     <div class="col-lg-12 well">
-        <strong> <h3>Катерина Коцева</h3> </strong>
-        <h4>E-маил: katerinakcv@gmail.com</h4>
-        <%= image_tag(gravatar_url(@owner) %>
-        <%= link_to gravatar_for("katerina_kcv@yahoo.com", size:100), "" %>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <strong class="center"> <h3>Катерина Коцева</h3> </strong>
+            <h4 class="center">E-маил: katerinakcv@gmail.com</h4>
+            <div class="col-lg-6 offset-6">
+                <%= gravatar_tag @owner, :size => 250 %>
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
     </div>
 <hr/>

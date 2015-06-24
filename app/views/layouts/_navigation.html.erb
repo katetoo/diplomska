@@ -30,6 +30,7 @@
       </li>
     <% end %>
     <% if logged_in? && current_user.admin  %>
+      <li role="presentation" class = "pull-right"><%= link_to "Коментари" , reviews_path %></li>
       <li role="presentation" class="dropdown pull-right">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="fixed">
           Додади <span class="caret"></span>

@@ -7,6 +7,9 @@
                 </div>
                 <strong> <h3><u></u>Име на производител:</u> <%= @producer.ime_proizvoditel %></h3> </strong>
                 <h4>Потекло: <%= @producer.poteklo %></h4>
+                <% if @producer.website? %>
+                    <h4>Веб сајт: <%= link_to @producer.website, extlink(@producer.website) %></h4>
+                <% end %>
             </section>
             </br>
             <% if @medicaments.any? %>
@@ -14,6 +17,7 @@
                 <% @medicaments.each do |med| %>
                     <div class="col-lg-10 offset-2 well">
                         <h4><%= link_to med.ime_lek, medicament_path(med) %></h4>
+                        
                     </div>
                 <% end %>
             <% else %>

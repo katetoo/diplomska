@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :producers
   resources :users
   resources :abouts , only: [:index]
+  resources :reviews , only: [:index]
   
   get '/login', to: 'logins#new'
     post '/login', to: 'logins#create'
