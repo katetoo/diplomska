@@ -47,7 +47,7 @@ class ProducersController < ApplicationController
     
     private
       def producer_params
-        params.require(:producer).permit(:ime_proizvoditel, :poteklo, :picture)
+        params.require(:producer).permit(:ime_proizvoditel, :poteklo, :picture, :website)
       end
     
       def require_admin

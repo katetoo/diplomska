@@ -67,7 +67,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
-    mini_magick (3.8.0)
+    mini_magick (3.5.0)
       subexec (~> 0.2.1)
     minitest (5.6.0)
     multi_json (1.11.0)
@@ -148,7 +148,7 @@ DEPENDENCIES
   gravatarify (~> 3.0.0)
   jbuilder (~> 2.0)
   jquery-rails
-  mini_magick (= 3.8.0)
+  mini_magick (= 3.5)
   pg
   pry
   rails (= 4.1.6)

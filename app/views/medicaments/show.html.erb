@@ -4,7 +4,7 @@
     <section class="group_info center">
         <strong> <h3><%= @medicament.ime_lek %></h3> </strong>
         <h4>Овој лек има генеричко име <%= @medicament.generic_name.genericko_ime %></h4>
-        <h4><u>Производител:</u> <%= @medicament.producer.ime_proizvoditel %>, <%= @medicament.producer.poteklo %> </h4>
+        <h4><u>Производител:</u> <%= link_to @medicament.producer.ime_proizvoditel, producer_path(@medicament.producer) %> , <%= @medicament.producer.poteklo %> </h4>
         <% if @medicament.komentar.present? %>
             <h4><%= @medicament.komentar %></h4>
         <% end %>
