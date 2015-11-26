@@ -8,7 +8,7 @@
                 <strong> <h3><u></u>Име на производител:</u> <%= @producer.ime_proizvoditel %></h3> </strong>
                 <h4>Потекло: <%= @producer.poteklo %></h4>
                 <% if @producer.website? %>
-                    <h4>Веб сајт: <%= link_to @producer.website, extlink(@producer.website) %></h4>
+                    <h4>Веб сајт: <%= link_to @producer.website, url_for(@producer.website) %></h4>
                 <% end %>
             </section>
             </br>
